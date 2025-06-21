@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import { ShoppingCart, Search } from 'lucide-react';
 import logo from '../assets/shopper.png'; // Your logo in assets folder
 
@@ -20,43 +21,45 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Left Section - Logo */}
           <div className="flex-shrink-0">
-            <img src={logo} alt="E-commerce Logo" className="h-8 w-auto" />
+            <Link to="/">
+              <img src={logo} alt="E-commerce Logo" className="h-8 w-auto" />
+            </Link>
           </div>
 
           {/* Center Section - Navigation Links */}
           <div className="hidden md:flex items-center">
             <ul className="flex space-x-8">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="text-gray-700 hover:text-gray-900 font-medium"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/product"
                   className="text-gray-700 hover:text-gray-900 font-medium"
                 >
                   Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/about"
                   className="text-gray-700 hover:text-gray-900 font-medium"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="text-gray-700 hover:text-gray-900 font-medium"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -80,13 +83,13 @@ const Navbar = () => {
             </form>
 
             {/* Cart Icon */}
-            <a href="#" className="relative">
+            <Link to="/cart" className="relative">
               <ShoppingCart className="text-gray-700" size={24} />
               {/* Cart count badge - implement with state management in production */}
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 0
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
